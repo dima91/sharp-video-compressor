@@ -1,0 +1,23 @@
+# Build artifacts
+bin/
+obj/
+
+# NuGet packages
+*.nupkg
+.nuget/
+packages/
+
+# Rider
+.idea/
+*.iml
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# VS Code
+.vscode/
+*.code-workspace
