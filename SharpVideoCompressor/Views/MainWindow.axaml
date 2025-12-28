@@ -7,12 +7,68 @@
         x:Class="SharpVideoCompressor.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="SharpVideoCompressor">
+        Title="SharpVideoCompressor" >
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
+
+
+    <Grid ColumnDefinitions="100,*,100" RowDefinitions="Auto,*,*,*,*">
+        <!-- Title -->
+        <TextBlock Grid.Row="0" Grid.Column="1" Classes="H2 Title" Theme="{StaticResource TitleTextBlock}">
+            Sharp Video Compressor
+        </TextBlock>
+
+        <!-- Current conversion card -->
+        <Border Grid.Row="1" Grid.Column="1" Theme="{StaticResource CardBorder}" Classes="MainPageCard" >
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Top">
+                    <PathIcon Data="{StaticResource SemiIconUserCardVideo}" Height="{StaticResource SemiWidthIconMedium}"/>
+                    <TextBlock Theme="{StaticResource TitleTextBlock}" Classes="H4" Text="Current Conversion"/>
+                </StackPanel>
+                
+                <ContentControl Content="{Binding CurrentConversionCardVM}"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Global settings card -->
+        <Border Grid.Row="2" Grid.Column="1" Theme="{StaticResource CardBorder}" Classes="MainPageCard">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Top">
+                    <PathIcon Data="{StaticResource SemiIconSetting}" Height="{StaticResource SemiWidthIconMedium}"/>
+                    <TextBlock Theme="{StaticResource TitleTextBlock}" Classes="H4" Text="Global Setings"/>
+                </StackPanel>
+                
+                <ContentControl Content="{Binding GlobalSettingsCardVM}"/>
+            </StackPanel>
+        </Border>
+        
+        <!-- Job list card -->
+        <Border Grid.Row="3" Grid.Column="1" Theme="{StaticResource CardBorder}" Classes="MainPageCard">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Top">
+                    <PathIcon Data="{StaticResource SemiIconList}" Height="{StaticResource SemiWidthIconMedium}"/>
+                    <TextBlock Theme="{StaticResource TitleTextBlock}" Classes="H4" Text="Job List"/>
+                </StackPanel>
+                
+                <ContentControl Content="{Binding JobListCardVM}"/>
+            </StackPanel>
+        </Border>
+        
+        <!-- CRF guide -->
+        <Border Grid.Row="4" Grid.Column="1" Theme="{StaticResource CardBorder}" Classes="MainPageCard">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Top">
+                    <PathIcon Data="{StaticResource SemiIconInfoCircle}" Height="{StaticResource SemiWidthIconMedium}"/>
+                    <TextBlock Theme="{StaticResource TitleTextBlock}" Classes="H4" Text="CRF guide"/>
+                </StackPanel>
+
+                <!-- <ContentControl Content="{Content}"/> -->
+            </StackPanel>
+        </Border>
+    </Grid>
 
 </Window>
