@@ -12,5 +12,6 @@
   
     <Application.Styles>
         <semi:SemiTheme/>
+        <StyleInclude Source="/Styles/Global.axaml" />
     </Application.Styles>
 </Application>
