@@ -1,4 +1,5 @@
 using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using SharpVideoCompressor.ViewModels;
@@ -20,6 +21,7 @@ public partial class App : Application
             desktop.MainWindow = new MainWindow
             {
                 DataContext = new MainWindowViewModel(),
+                WindowState = WindowState.Maximized
             };
         }
 
