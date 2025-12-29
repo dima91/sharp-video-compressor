@@ -4,9 +4,9 @@ using Splat;
 
 namespace SharpVideoCompressor.Services;
 
-public class AppDataService
+public class AppDataStorage
 {
-    public AppDataService()
+    public AppDataStorage()
     {
     }
 }
