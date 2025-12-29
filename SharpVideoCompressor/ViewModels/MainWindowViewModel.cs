@@ -1,5 +1,8 @@
 ﻿namespace SharpVideoCompressor.ViewModels;
 
+using ReactiveUI;
+using Splat;
+using SharpVideoCompressor.Services;
 using SharpVideoCompressor.ViewModels.Cards;
 
 public class MainWindowViewModel : ViewModelBase
@@ -17,6 +20,9 @@ public class MainWindowViewModel : ViewModelBase
 
     public MainWindowViewModel ()
     {
+        Locator.CurrentMutable.RegisterConstant(new VideoConverterService(), typeof(VideoConverterService));
+        Locator.CurrentMutable.RegisterConstant(new AppDataService(), typeof(AppDataService));
+
         _CurrentConversionCardVM = new CurrentConversionCardViewModel();
         _GlobalSettingsCardVM = new GlobalSettingsCardViewModel();
         _JobListCardVM = new JobListCardViewModel();
