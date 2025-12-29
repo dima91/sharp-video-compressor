@@ -1,8 +1,14 @@
+using SharpVideoCompressor.Services;
+
 namespace SharpVideoCompressor.ViewModels.Cards;
 
 public class CurrentConversionCardViewModel : ViewModelBase
 {
-    public CurrentConversionCardViewModel()
+    private readonly AppDataStorage _appDataStorage;
+
+
+    public CurrentConversionCardViewModel(AppDataStorage appDataStorage)
     {
+        _appDataStorage = appDataStorage;
     }
 }

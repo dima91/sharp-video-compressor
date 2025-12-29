@@ -7,6 +7,7 @@ using SharpVideoCompressor.ViewModels.Cards;
 
 public class MainWindowViewModel : ViewModelBase
 {
+    private readonly AppDataStorage _appDataStorage;
     
     private CurrentConversionCardViewModel _CurrentConversionCardVM;
     public CurrentConversionCardViewModel CurrentConversionCardVM { get => _CurrentConversionCardVM; }
@@ -20,11 +21,11 @@ public class MainWindowViewModel : ViewModelBase
 
     public MainWindowViewModel ()
     {
-        Locator.CurrentMutable.RegisterConstant(new VideoConverterService(), typeof(VideoConverterService));
-        Locator.CurrentMutable.RegisterConstant(new AppDataService(), typeof(AppDataService));
+        _appDataStorage = new();
+        Locator.CurrentMutable.RegisterConstant(new VideoConverterService(_appDataStorage), typeof(VideoConverterService));
 
-        _CurrentConversionCardVM = new CurrentConversionCardViewModel();
-        _GlobalSettingsCardVM = new GlobalSettingsCardViewModel();
-        _JobListCardVM = new JobListCardViewModel();
+        _CurrentConversionCardVM = new CurrentConversionCardViewModel(_appDataStorage);
+        _GlobalSettingsCardVM = new GlobalSettingsCardViewModel(_appDataStorage);
+        _JobListCardVM = new JobListCardViewModel(_appDataStorage);
     }
 }
